@@ -10,6 +10,9 @@ multiple places ("class owners"), so it doesn't make sense to inject the alert d
 each time it is used, because it would be generally the same every time.
 
 If you want to **UNIT** test (not UI test, because you just want to check the business logic that happens
-in different scenarios), this is a useful abstraction layer where you can inject Dialog builder and use it
-the same way you are used to. But with a great simple advantage - **JUnit won't crash because of dialog initialization**
-inside your Specs.
+in different scenarios) commands which use this approach, this solution provides a useful abstraction 
+layer where you can inject Dialog builder and use it the same way you are used to.
+But with a great simple advantage - **JUnit won't crash because of dialog initialization**
+in your Specs this time.
+
+This also provides a simple way of coloring the AlertDialog buttons

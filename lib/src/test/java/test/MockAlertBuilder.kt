@@ -60,16 +60,27 @@ class MockAlertBuilder : AlertBuilderInterface {
 
         override fun show() {
             onShowAction?.invoke(this)
+            onShowAction = null
         }
 
         override fun cancel() {
             dismissListener?.onDismiss(this)
             onDismissAction?.invoke(this)
+            clean()
         }
 
         override fun dismiss() {
             dismissListener?.onDismiss(this)
             onDismissAction?.invoke(this)
+            clean()
+        }
+
+        private fun clean() {
+            listenerMap.clear()
+            adapterListener = null
+            dismissListener = null
+            onDismissAction = null
+            onShowAction = null
         }
 
         fun click(@DialogButtonType type: Int) {
