@@ -47,7 +47,7 @@ class AlertBuilderImpl : AlertBuilderInterface {
             return this
         }
 
-        override fun button(@DialogButtonType type: Int, btn: Int, listener: DialogInterface.OnClickListener): AlertBuilder {
+        override fun button(@DialogButtonType type: Int, btn: Int, listener: DialogInterface.OnClickListener?): AlertBuilder {
             when (type) {
                 DialogInterface.BUTTON_POSITIVE -> builder.setPositiveButton(btn, listener)
                 DialogInterface.BUTTON_NEGATIVE -> builder.setNegativeButton(btn, listener)
@@ -56,7 +56,7 @@ class AlertBuilderImpl : AlertBuilderInterface {
             return this
         }
 
-        override fun button(@DialogButtonType type: Int, btn: Int, listener: DialogInterface.OnClickListener, color: Int): AlertBuilder {
+        override fun button(@DialogButtonType type: Int, btn: Int, listener: DialogInterface.OnClickListener?, color: Int): AlertBuilder {
             colorMap[type] = color
             when (type) {
                 DialogInterface.BUTTON_POSITIVE -> builder.setPositiveButton(btn, listener)

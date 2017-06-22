@@ -20,8 +20,8 @@ interface AlertBuilderInterface {
         fun message(@StringRes msg: Int): AlertBuilder
         fun message(msg: String): AlertBuilder
         fun adapter(adapter: ListAdapter, listener: DialogInterface.OnClickListener?): AlertBuilder
-        fun button(@DialogButtonType type: Int, @StringRes btn: Int, listener: DialogInterface.OnClickListener): AlertBuilder
-        fun button(@DialogButtonType type: Int, @StringRes btn: Int, listener: DialogInterface.OnClickListener, @ColorRes color: Int): AlertBuilder
+        fun button(@DialogButtonType type: Int, @StringRes btn: Int, listener: DialogInterface.OnClickListener?): AlertBuilder
+        fun button(@DialogButtonType type: Int, @StringRes btn: Int, listener: DialogInterface.OnClickListener?, @ColorRes color: Int): AlertBuilder
         fun onDismiss(listener: DialogInterface.OnDismissListener): AlertBuilder
         fun show()
     }

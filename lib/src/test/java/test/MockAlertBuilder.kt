@@ -44,12 +44,12 @@ class MockAlertBuilder : AlertBuilderInterface {
             adapterListener = listener
             return this
         }
-        override fun button(type: Int, btn: Int, listener: DialogInterface.OnClickListener): AlertBuilder {
-            listenerMap[type] = listener
+        override fun button(type: Int, btn: Int, listener: DialogInterface.OnClickListener?): AlertBuilder {
+            listener?.let { listenerMap[type] = it }
             return this
         }
-        override fun button(type: Int, btn: Int, listener: DialogInterface.OnClickListener, color: Int): AlertBuilder {
-            listenerMap[type] = listener
+        override fun button(type: Int, btn: Int, listener: DialogInterface.OnClickListener?, color: Int): AlertBuilder {
+            listener?.let { listenerMap[type] = it }
             return this
         }
 
