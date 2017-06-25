@@ -73,7 +73,11 @@ class AlertBuilderImpl : AlertBuilderInterface {
 
         override fun show() {
             val d = builder.show()
-            colorMap.forEach { type, color -> d.getButton(type)?.setTextColor(ContextCompat.getColor(d.context, color)) }
+//            colorMap.forEach { type, color -> d.getButton(type)?.setTextColor(ContextCompat.getColor(d.context, color)) }
+            //foreach crashes on old APIs (kitkat)
+            for ((type, color) in colorMap) {
+                d.getButton(type)?.setTextColor(ContextCompat.getColor(d.context, color))
+            }
             //release map, it is no longer needed
             colorMap.clear()
         }
